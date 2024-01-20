@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherService.API", "WeatherService.API\WeatherService.API.csproj", "{CD978BDA-7610-4736-B0AC-671C6BD9136D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherService.API", "WeatherService.API\WeatherService.API.csproj", "{CD978BDA-7610-4736-B0AC-671C6BD9136D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherService.Domain", "WeatherService.Domain\WeatherService.Domain.csproj", "{FEFEB14B-51A1-4E42-B9D1-A6E2938DB7BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherService.Domain", "WeatherService.Domain\WeatherService.Domain.csproj", "{FEFEB14B-51A1-4E42-B9D1-A6E2938DB7BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherService.Infrastructure", "WeatherService.Infrastructure\WeatherService.Infrastructure.csproj", "{CBCDFB85-26E6-4126-9986-05EE34B50976}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherService.Infrastructure", "WeatherService.Infrastructure\WeatherService.Infrastructure.csproj", "{CBCDFB85-26E6-4126-9986-05EE34B50976}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherService.Application", "WeatherService.Application\WeatherService.Application.csproj", "{8A5091F4-1202-41C1-9AA0-B3CC43DE3C4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherService.Application", "WeatherService.Application\WeatherService.Application.csproj", "{8A5091F4-1202-41C1-9AA0-B3CC43DE3C4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherService.Tests", "WeatherService.Tests\WeatherService.Tests.csproj", "{AD2E0517-2053-443A-ADF7-59246E60BFBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8A5091F4-1202-41C1-9AA0-B3CC43DE3C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A5091F4-1202-41C1-9AA0-B3CC43DE3C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A5091F4-1202-41C1-9AA0-B3CC43DE3C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2E0517-2053-443A-ADF7-59246E60BFBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2E0517-2053-443A-ADF7-59246E60BFBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2E0517-2053-443A-ADF7-59246E60BFBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2E0517-2053-443A-ADF7-59246E60BFBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

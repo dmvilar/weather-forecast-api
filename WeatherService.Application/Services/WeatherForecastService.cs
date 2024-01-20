@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WeatherService.Domain.Entities;
+﻿using WeatherService.Domain.Entities;
 using WeatherService.Domain.Interfaces;
 using WeatherService.Infrastructure.Interfaces;
 

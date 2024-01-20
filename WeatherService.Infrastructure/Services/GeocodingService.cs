@@ -1,11 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 using WeatherService.Domain.Entities;
 using WeatherService.Infrastructure.Interfaces;
 
@@ -21,18 +14,29 @@ namespace WeatherService.Infrastructure.Services
         }
         public async Task<Coordinates> GetCoordinates(Address address)
         {
-            var url = $"https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address={Uri.EscapeDataString(address.StreetAddress)}&benchmark=Public_AR_Current&format=json";
-            var response = await _httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            var content = await response.Content.ReadAsStringAsync();
-            var json = JObject.Parse(content);
-
-            var coordinatesJson = json["result"]["addressMatches"][0]["coordinates"];
-            return new Coordinates
+            try
             {
-                Latitude =  (string)coordinatesJson["y"],
-                Longitude = (string)coordinatesJson["x"]
-            };
+                var url = $"https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address={Uri.EscapeDataString(address.StreetAddress)}&benchmark=Public_AR_Current&format=json";
+                var response = await _httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                
+                var content = await response.Content.ReadAsStringAsync();
+                var json = JObject.Parse(content);
+
+                var coordinatesJson = json["result"]["addressMatches"][0]["coordinates"];
+
+                var coordinates = new Coordinates
+                {
+                    Latitude = coordinatesJson["y"].ToString(),
+                    Longitude = coordinatesJson["x"].ToString()
+                };
+
+                return coordinates;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Could not retrieve data from geocoding API", ex);
+            }
         }
     }
 }
