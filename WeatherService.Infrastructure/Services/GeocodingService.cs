@@ -27,15 +27,15 @@ namespace WeatherService.Infrastructure.Services
 
                 var coordinates = new Coordinates
                 {
-                    Latitude = coordinatesJson["y"].ToString(),
-                    Longitude = coordinatesJson["x"].ToString()
+                    Latitude = coordinatesJson["y"].ToString().Replace(",", "."),
+                    Longitude = coordinatesJson["x"].ToString().Replace(',', '.')
                 };
 
                 return coordinates;
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not retrieve data from geocoding API", ex);
+                throw new Exception("Could not retrieve coordinates from geocoding API", ex);
             }
         }
     }

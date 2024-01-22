@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using WeatherService.API.Mappers;
 using WeatherService.Domain.Entities;
 
 namespace WeatherService.Controllers
@@ -20,13 +21,23 @@ namespace WeatherService.Controllers
         [HttpGet("{address}")]
         public async Task<IActionResult> Get([Required] string address)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
-            var weatherForecast = await _weatherForecastService.GetByAddress(new Address { StreetAddress = address });
-            return Ok(weatherForecast);
+                var weatherForecast = await _weatherForecastService.GetByAddress(new Address { StreetAddress = address });
+
+                var weatherForecastViewModel = WeatherForecastMapper.ToWeatherForecastViewModel(weatherForecast);
+
+                return Ok(weatherForecastViewModel);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new { ErrorMessage = ex.Message });
+            }
         }
     }
 }

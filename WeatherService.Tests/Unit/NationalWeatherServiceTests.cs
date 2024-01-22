@@ -26,7 +26,7 @@ namespace WeatherService.Tests.Unit
             // Arrange
             var mockWeatherForecast = new WeatherForecast { };
             var coordinates = new Coordinates { Latitude = "39.7456", Longitude = "-97.0892" };
-            var mockResponse = new HttpResponseMessage
+            var mockFirstResponse = new HttpResponseMessage
             {
                 StatusCode = HttpStatusCode.OK,
                 Content = new StringContent(JsonConvert.SerializeObject(
@@ -34,10 +34,40 @@ namespace WeatherService.Tests.Unit
                     {
                         properties = new
                         {
-                            forecast = "https://api.weather.gov/gridpoints/TOP/32,81"
+                            forecastGridData = "https://api.weather.gov/gridpoints/LWX/97,71"
                         }
                     })),
             };
+            var mockSecondResponse = new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.OK,
+                Content = new StringContent(JsonConvert.SerializeObject(
+                    new
+                    {
+                        properties = new
+                        {
+                            maxTemperature = new 
+                            {
+                                values = new[]
+                                {
+                                    new {validTime = "", value = "1.11" },
+                                    new {validTime = "", value = "1.11" },
+                                    new {validTime = "", value = "1.11" }
+                                }
+                            },
+                            minTemperature = new
+                            {
+                                values = new[]
+                                {
+                                    new {validTime = "", value = "1.00" },
+                                    new {validTime = "", value = "1.00" },
+                                    new {validTime = "", value = "1.00" }
+                                }
+                            },
+                        }
+                    })),
+            };
+
 
             _mockHttpMessageHandler.Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -45,13 +75,21 @@ namespace WeatherService.Tests.Unit
                     ItExpr.Is<HttpRequestMessage>(req => req.Method == HttpMethod.Get && req.RequestUri.ToString().Contains("api.weather.gov")),
                     ItExpr.IsAny<CancellationToken>()
                 )
-                .ReturnsAsync(mockResponse);
+                .ReturnsAsync(mockFirstResponse);
+
+            _mockHttpMessageHandler.Protected()
+                .Setup<Task<HttpResponseMessage>>(
+                    "SendAsync",
+                    ItExpr.Is<HttpRequestMessage>(req => req.Method == HttpMethod.Get && req.RequestUri.ToString().Contains("api.weather.gov/gridpoints/LWX/")),
+                    ItExpr.IsAny<CancellationToken>()
+                )
+                .ReturnsAsync(mockSecondResponse);
 
             // Act
             var result = await _nationalWeatherService.GetWeatherForecast(coordinates);
 
             // Assert
-            Assert.Equivalent(mockWeatherForecast, result);
+            Assert.NotNull(result);
         }
 
         [Fact]

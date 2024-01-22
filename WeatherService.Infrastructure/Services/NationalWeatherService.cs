@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using WeatherService.Domain.Entities;
 using WeatherService.Infrastructure.Interfaces;
 
@@ -24,23 +25,28 @@ namespace WeatherService.Infrastructure.Services
 
                 var content = await response.Content.ReadAsStringAsync();
                 var json = JObject.Parse(content);
-                var forecastUrl = json["properties"]["forecast"];
+                var forecastUrl = json["properties"]["forecastGridData"];
                 
                 response = await _httpClient.GetAsync((string)forecastUrl);
                 response.EnsureSuccessStatusCode();
                 
                 var forecastContent = await response.Content.ReadAsStringAsync();
                 var forecastJson = JObject.Parse(forecastContent);
+
+                var maxTemperaturesList = forecastJson["properties"]["maxTemperature"]["values"].ToString();
+                var minTemperaturesList = forecastJson["properties"]["minTemperature"]["values"].ToString();
+
                 var forecast = new WeatherForecast
                 {
-
+                    MaxTemperatures = JsonConvert.DeserializeObject<IEnumerable<Temperatures>>(maxTemperaturesList),
+                    MinTemperatures = JsonConvert.DeserializeObject<IEnumerable<Temperatures>>(minTemperaturesList)
                 };
 
                 return forecast;
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not retrieve data from weather API", ex);
+                throw new Exception("Could not retrieve forecast from national weather API", ex);
             }
         }
     }

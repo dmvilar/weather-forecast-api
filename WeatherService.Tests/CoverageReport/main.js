@@ -228,13 +228,14 @@ var assemblies = [
     "classes": [
       { "name": "WeatherService.Domain.Entities.Address", "rp": "WeatherService.Domain_Address.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 7, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "WeatherService.Domain.Entities.Coordinates", "rp": "WeatherService.Domain_Coordinates.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 14, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "WeatherService.Domain.Entities.WeatherForecast", "rp": "WeatherService.Domain_WeatherForecast.html", "cl": 3, "ucl": 0, "cal": 3, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "WeatherService.Domain.Entities.Temperatures", "rp": "WeatherService.Domain_Temperatures.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "WeatherService.Domain.Entities.WeatherForecast", "rp": "WeatherService.Domain_WeatherForecast.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "WeatherService.Infrastructure",
     "classes": [
       { "name": "WeatherService.Infrastructure.Services.GeocodingService", "rp": "WeatherService.Infrastructure_GeocodingService.html", "cl": 22, "ucl": 0, "cal": 22, "tl": 42, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "WeatherService.Infrastructure.Services.NationalWeatherService", "rp": "WeatherService.Infrastructure_NationalWeatherService.html", "cl": 26, "ucl": 0, "cal": 26, "tl": 47, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "WeatherService.Infrastructure.Services.NationalWeatherService", "rp": "WeatherService.Infrastructure_NationalWeatherService.html", "cl": 29, "ucl": 0, "cal": 29, "tl": 53, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
