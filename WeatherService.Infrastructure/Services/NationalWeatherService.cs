@@ -46,7 +46,7 @@ namespace WeatherService.Infrastructure.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not retrieve forecast from national weather API", ex);
+                throw new Exception("Could not retrieve forecast from National Weather API", ex);
             }
         }
     }

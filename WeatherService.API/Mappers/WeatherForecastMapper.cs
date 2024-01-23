@@ -7,27 +7,33 @@ namespace WeatherService.API.Mappers
     {
         public static List<WeatherForecastViewModel> ToWeatherForecastViewModel(WeatherForecast weatherForecast)
         {
-            var viewModel = new List<WeatherForecastViewModel>();
+            var maxTemperaturesDict = weatherForecast.MaxTemperatures
+                .ToDictionary(t => t.ValidTime.Split('T')[0], t => t.Value);
 
-            for (var i = 0; i < 7; i++)
-            {
-                var maxTemperatures = weatherForecast.MaxTemperatures.ToList()[i];
-                var minTemperatures = weatherForecast.MinTemperatures.ToList()[i];
+            var minTemperaturesDict = weatherForecast.MinTemperatures
+                .ToDictionary(t => t.ValidTime.Split('T')[0], t => t.Value);
 
-                if(maxTemperatures.ValidTime.Split('T')[0] == minTemperatures.ValidTime.Split('T')[0])
+            var allDates = new HashSet<string>(maxTemperaturesDict.Keys.Concat(minTemperaturesDict.Keys));
+
+            var viewModel = allDates
+                .OrderBy(date => date)
+                .Take(7)
+                .Select(date =>
                 {
-                    var date = maxTemperatures.ValidTime.Split('T')[0];
+                    maxTemperaturesDict.TryGetValue(date, out double maxTempValue);
+                    minTemperaturesDict.TryGetValue(date, out double minTempValue);
 
-                    viewModel.Add(new WeatherForecastViewModel
+                    return new WeatherForecastViewModel
                     {
                         Date = date,
-                        MinTemperature = Math.Round(minTemperatures.Value).ToString(),
-                        MaxTemperature = Math.Round(maxTemperatures.Value).ToString()
-                    });
-                }
-            }
+                        MaxTemperature = maxTemperaturesDict.ContainsKey(date) ? Math.Round(maxTempValue).ToString() : "-",
+                        MinTemperature = minTemperaturesDict.ContainsKey(date) ? Math.Round(minTempValue).ToString() : "-"
+                    };
+                })
+                .ToList();
 
             return viewModel;
         }
+
     }
 }

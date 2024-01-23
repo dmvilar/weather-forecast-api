@@ -35,7 +35,7 @@ namespace WeatherService.Infrastructure.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not retrieve coordinates from geocoding API", ex);
+                throw new Exception("Could not retrieve coordinates from Geocoding API", ex);
             }
         }
     }
