@@ -38,8 +38,8 @@ namespace WeatherService.Infrastructure.Services
 
                 var forecast = new WeatherForecast
                 {
-                    MaxTemperatures = JsonConvert.DeserializeObject<IEnumerable<Temperatures>>(maxTemperaturesList),
-                    MinTemperatures = JsonConvert.DeserializeObject<IEnumerable<Temperatures>>(minTemperaturesList)
+                    MaxTemperatures = JsonConvert.DeserializeObject<IEnumerable<Temperature>>(maxTemperaturesList),
+                    MinTemperatures = JsonConvert.DeserializeObject<IEnumerable<Temperature>>(minTemperaturesList)
                 };
 
                 return forecast;

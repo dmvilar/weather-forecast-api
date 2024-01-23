@@ -34,6 +34,5 @@ namespace WeatherService.API.Mappers
 
             return viewModel;
         }
-
     }
 }

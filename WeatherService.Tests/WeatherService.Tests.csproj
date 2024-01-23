@@ -28,7 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WeatherService.API\WeatherService.API.csproj" />
     <ProjectReference Include="..\WeatherService.Application\WeatherService.Application.csproj" />
+    <ProjectReference Include="..\WeatherService.Domain\WeatherService.Domain.csproj" />
   </ItemGroup>
 
 </Project>

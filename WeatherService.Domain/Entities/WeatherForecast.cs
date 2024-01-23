@@ -9,11 +9,11 @@ namespace WeatherService.Domain.Entities
 {
     public class WeatherForecast
     {
-        public IEnumerable<Temperatures> MaxTemperatures { get; set; }
-        public IEnumerable<Temperatures> MinTemperatures { get; set; }
+        public IEnumerable<Temperature> MaxTemperatures { get; set; }
+        public IEnumerable<Temperature> MinTemperatures { get; set; }
     }
 
-    public class Temperatures
+    public class Temperature
     {
         [JsonProperty("validTime")]
         public string ValidTime { get; set; }

@@ -219,6 +219,14 @@ for (i = 0, l = charts.length; i < l; i++) {
 
 var assemblies = [
   {
+    "name": "WeatherService.API",
+    "classes": [
+      { "name": "Program", "rp": "WeatherService.API_Program.html", "cl": 0, "ucl": 29, "cal": 29, "tl": 44, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "WeatherService.API.Mappers.WeatherForecastMapper", "rp": "WeatherService.API_WeatherForecastMapper.html", "cl": 24, "ucl": 0, "cal": 24, "tl": 38, "cb": 2, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "WeatherService.API.ViewModels.WeatherForecastViewModel", "rp": "WeatherService.API_WeatherForecastViewModel.html", "cl": 3, "ucl": 0, "cal": 3, "tl": 9, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "WeatherService.Controllers.WeatherForecastController", "rp": "WeatherService.API_WeatherForecastController.html", "cl": 0, "ucl": 17, "cal": 17, "tl": 43, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+    ]},
+  {
     "name": "WeatherService.Application",
     "classes": [
       { "name": "WeatherService.Application.Services.WeatherForecastService", "rp": "WeatherService.Application_WeatherForecastService.html", "cl": 9, "ucl": 0, "cal": 9, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
@@ -228,7 +236,7 @@ var assemblies = [
     "classes": [
       { "name": "WeatherService.Domain.Entities.Address", "rp": "WeatherService.Domain_Address.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 7, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "WeatherService.Domain.Entities.Coordinates", "rp": "WeatherService.Domain_Coordinates.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 14, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "WeatherService.Domain.Entities.Temperatures", "rp": "WeatherService.Domain_Temperatures.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "WeatherService.Domain.Entities.Temperature", "rp": "WeatherService.Domain_Temperature.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "WeatherService.Domain.Entities.WeatherForecast", "rp": "WeatherService.Domain_WeatherForecast.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
   {
